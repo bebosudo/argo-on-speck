@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-world
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io/background
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - ServerSideApply=true
+    - CreateNamespace=true
+    - PrunePropagationPolicy=foreground
+    - PruneLast=true
+  destination:
+    server: https://kubernetes.default.svc  # this is the k8s server where Argo CD is running
+    namespace: my-app
+  source:
+    repoURL: https://github.com/bebosudo/argo-on-speck.git
+    targetRevision: main
+    path: manifests/hello-world/environments/my-cluster1
