@@ -10,12 +10,12 @@ Set up microk8s and Argo CD as per [setup.md](setup.md).
 
 - [ ] Create a classic Argo CD Application:
       `mk apply -f argo-applications/hello-world/my-cluster1/application.yaml`
-- [ ] Check the application in the Argo CD UI.
+- [ ] Check the application in the Argo CD UI: http://localhost:32080
 - [ ] Check the application in the browser: http://localhost:30080
 - [ ] Bump the image version in the `hello-world` application and watch Argo CD sync it: may need a
       bump on the UI or CLI to trigger the sync.
 - [ ] Wait for the sync to finish, or force it with: `mk -n argocd patch app/hello-world -p '{"operation": {"initiatedBy": {"username": "alberto"}, "sync": {"syncStrategy": {"hook": {}}}}}' --type merge`
-- [ ] check the new version of the application at http://localhost:30080
+- [ ] Check the new version of the application at http://localhost:30080
 
 ### Argo CD Application Sets demo
 
