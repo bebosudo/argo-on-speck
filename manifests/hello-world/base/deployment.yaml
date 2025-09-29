@@ -14,11 +14,12 @@ spec:
         app: hello-world-app
     spec:
       containers:
-      - image: nginx:1.26.2  # 1.27.1
+      # try updating the following image to 1.27.1, commit and push and see what happens!
+      - image: nginx:1.26.2
         name: hello-world-app
         command: ["/bin/sh"]
         args:
           - "-c"
           - |
-            echo "<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"></head><h1>Hello, speckers! 🍖</h1><br>I am $(nginx -version 2>&1) running on microk8s powered by Argo CD! 🐙" > /usr/share/nginx/html/index.html
+            echo "<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"></head><h1>Hello, human! 🤖</h1><br>I am $(nginx -version 2>&1) running on microk8s powered by Argo CD! 🐙" > /usr/share/nginx/html/index.html
             nginx -g "daemon off;"
