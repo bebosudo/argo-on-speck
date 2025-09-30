@@ -14,7 +14,7 @@ spec:
         app: hello-world-app
     spec:
       containers:
-      # try updating the following image to 1.27.1, commit and push and see what happens!
+      # try updating the following image to 1.29.1, commit and push and see what happens!
       - image: nginx:1.26.2
         name: hello-world-app
         command: ["/bin/sh"]
